@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>shopping cart</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!--meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"-->
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+	<!--link rel="stylesheet" href="style.css"> </head-->
+	
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Roboto');
+ body {
+	font-family: 'Roboto', sans-serif;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+i {
+	margin-right: 10px;
+}
+input:focus,
+button:focus,
+p {
+	margin-bottom: 0;
+}
+.form-control:focus {
+	outline: none;
+	box-shadow: none;
+}
+.form-control:disabled,
+.form-control[readonly] {
+	background-color: #fff;
+}
+.table tr,
+.table tr td {
+	padding: 2px 2px 2px 2px;
+	vertical-align: 0;
+}
+.input1 {
+	width: 47px !important;
+	text-align: center;
+}
+.table1 {
+	font-size: 12px;
+}
+.th0 {
+	padding: 0;
+}
+.div0 {
+	width: 134px;
+	padding: 0px 10px 0px 10px;
+}
+.td4 {
+	width: 0 !important;
+}
+.td7 {
+	width: 0 !important;
+	text-align: center;
+}
+}
+.button-container {
+	display: flex;
+	align-items: center;
+}
+.button-container .form-control {
+	max-width: 80px;
+	text-align: center;
+	display: inline-block;
+	margin: 0px 5px;
+}
+#myTable .form-control {
+	width: auto;
+	display: inline-block;
+	width: 70px;
+	height: 18px;
+	font-size: 12px;
+}
+.cart-qty-plus,
+.cart-qty-minus {
+	width: 38px;
+	height: 38px;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+}
+.cart-qty-plus:hover,
+.cart-qty-minus:hover {
+	background-color: #5161ce;
+	color: #fff;
+}
+.cart-qty-plus {
+	background-color: #28a745;
+	color: white;
+	font-weight: 600;
+	width: 14px;
+	height: 19px;
+}
+.cart-qty-minus {
+	background-color: #28a745;
+	color: white;
+	font-weight: 600;
+	width: 14px;
+	height: 19px;
+}
+/*===========>>> print file<<<===========*/
+
+/*
+#salarpot {
+  
+  background-image: url(https://2.bp.blogspot.com/-XvVmBv1diYE/XeiFc1b8Q-I/AAAAAAAAAeg/WCQVQ3D2fkAp0pe1W8viErJmqkJYzsrzwCK4BGAYYCw/s1600/AMBD%2BTechnical%2BGroup%2BAnd%2BScience%2BLaboratory%2Bof%2Bin%2BClub.png);
+ 
+    background-repeat: no-repeat;
+    background-position: center;
+	
+}
+*/
+
+.pft {
+	margin: 0;
+}
+.ptfb {
+	font-weight: bold;
+}
+.ptfbb {
+	padding-bottom: 10px;
+}
+.inputD {
+	border-style: none;
+}
+.QuantityS {
+	float: right;
+}
+.ThP {
+	padding: 10px 8px 10px 0px !important;
+}
+.ThPQ {
+	text-align: center;
+	width: 20%;
+}
+.ThFW {
+	width: 6%;
+}
+.ThPW {
+	width: 25%;
+}
+.ThPPC {
+	width: 15%;
+}
+	</style>
+
+<body>
+	<div class="container-fluid mt-5">
+		<div id="main">
+			<h2 class="mb-5 text-center">AMBD Technical Group Shopping Cart</h2>
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<div class="table-responsive">
+						<table id="myTable" class="table table1">
+							<thead>
+								<tr>
+									<th class="th0">Checkbox</th>
+									<th class="th0">Serial</th>
+									<th class="th0">Product Name</th>
+									<th class="th0">Product Code</th>
+									<th class="th0">Product Size</th>
+									<th class="th0">Company Name</th>
+									<th class="th0">Quantity</th>
+									<th class="th0">Product Price</th>
+									<th class="text-right"> <span id="amount" class="amount">Amount</span> </th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<!-------Product Name---------->
+									<td class="td7">
+										<input class="name" type="checkbox" value="ফোর গ্যাং সুইচ">
+									</td>
+									<td class="td4">
+										<!---------Serial--------------->
+										<input style="padding:5px; font-size:17px" type="text" value="1" class="form-control input1" disabled> </td>
+									<td>
+										<!--Product Name-->
+										<p>ফোর গ্যাং সুইচ</p>
+									</td>
+									<td class="td4">
+										<select class="ProductCode">
+											<option>Product Code</option>
+											<option>7855</option>
+											<option>লাল</option>
+											<option>কালো</option>
+											<option>সাদা</option>
+											<option>কালো</option>
+											<option>হলুদ</option>
+										</select>
+									</td>
+									<td class="td4">
+										<select class="ProductSize">
+											<option>Product Size</option>
+											<option>1x1.3 RM</option>
+											<option>1x2.0 RM</option>
+											<option>1x2.0 RM</option>
+										</select>
+									</td>
+									<td class="td4">
+										<select class="CompaniName">
+											<option>Compani Name</option>
+											<option>click</option>
+											<option>supperster</option>
+											<option>bizly</option>
+										</select>
+									</td>
+									<td>
+										<div class="button-container">
+											<input type="number" name="qty" min="0" class="QtyNbr qty form-control" value=" " required />
+											<select class="QuantityA">
+												<option>পরিমাণ</option>
+												<option>টি</option>
+												<option>ডজন</option>
+												<option>গজ</option>
+												<option>ফুট</option>
+												<option>কয়েল</option>
+												<option>কেজি</option>
+												<option>গ্রাম</option>
+											</select>
+										</div>
+									</td>
+									<td>
+										<!--------------Product Price---------->
+										<input type="number" name="qty" min="0" value="70" class="ProductPrice price form-control" disabled/> <span>৳</span> </td>
+									<td align="right"> <span id="amount" class="amount">0</span> <span>৳</span> </td>
+								</tr>
+								<!--======================>>> Add More Tr <<<==========================-->
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="8"></td>
+									<td align="right"> <strong>
+						TOTAL = <span id="total" class="total">0</span> <span>৳</span>
+                        </strong> </td>
+								</tr>
+								<tr>
+									<td colspan="8"></td>
+									<td align="right" class=""> <strong>
+						DISCOUNT = <input class="form-control" oninput="LengthConverter(this.value)" /><span> %</span>
+                        </strong> </td>
+								</tr>
+								<tr>
+									<td colspan="8"></td>
+									<td align="right"> <strong>
+						TOTAL = <span id="outputMeters" >0</span> <span>৳</span>
+                        </strong> </td>
+								</tr>
+								<tr>
+									<td colspan="8"></td>
+									<td align="right"> <strong>
+						<input type="submit" id="save" value="Save"/>
+						<!-- <input type="submit" id="convertImg" value="Convert"/> -->
+                        </strong> </td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--======>>> Print file <<<======-->
+		<div class="col-md-12" style="display: none;" id="document">
+			<div id="printHedtitle">
+				<h3 class="text-center pft ptfb">AMBD Technical group</h3>
+				<h5 class="text-center pft">And science laboratory of in club</h5>
+				<h6 class="text-center pft ptfb">Abdullah Al Mamun</h6>
+				<h6 class="text-center pft ptfb">01967452075/01624194341</h6>
+				<h6 class="text-center pft">E-mail: ambdlife1187@gmail.com</h6>
+				<h6 class="text-center pft ptfb">www.ambdegslc.blogspot.com</h6>
+				<h6 class="text-center pft ptfb ptfbb">Mymensingh, Dhaka, Bangladesh.</h6> </div>
+			<div class="row justify-content-center">
+				<div class="col-md-10">
+					<div class="table-responsive">
+						<table id="myTable" class="table table1">
+							<thead>
+								<tr>
+									<!--th class="th0" >Checkbox</th-->
+									<th class="th0 ThFW">Serial</th>
+									<th class="th0 ThP ThPW">Product Name</th>
+									<th class="th0 ThP ThPPC">Product Code</th>
+									<th class="th0 ThP ThPPC">Product Size</th>
+									<th class="th0 ThP ThPPC">Company Name</th>
+									<th class="th0 ThPQ">Quantity</th>
+									<!--th class="th0">Product Price</th>
+					 <th class="text-right">
+                        <span id="amount" class="amount">Amount</span>
+                     </th-->
+								</tr>
+							</thead>
+							<tbody id="selected-data"> </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	$(document).ready(function() {
+		update_amounts();
+		$('.qty, .price').on('keyup keypress blur change', function(e) {
+			update_amounts();
+		});
+	});
+
+	function update_amounts() {
+		var sum = 0.0;
+		$('#myTable > tbody  > tr').each(function() {
+			var qty = $(this).find('.qty').val();
+			var price = $(this).find('.price').val();
+			var amount = (qty * price)
+			sum += amount;
+			$(this).find('.amount').text('' + amount);
+		});
+		$('.total').text(sum);
+	}
+	//----------------for quantity-increment-or-decrement-------
+	var incrementQty;
+	var decrementQty;
+	var plusBtn = $(".cart-qty-plus");
+	var minusBtn = $(".cart-qty-minus");
+	var incrementQty = plusBtn.click(function() {
+		var $n = $(this).parent(".button-container").find(".qty");
+		$n.val(Number($n.val()) + 1);
+		update_amounts();
+	});
+	var decrementQty = minusBtn.click(function() {
+		var $n = $(this).parent(".button-container").find(".qty");
+		var QtyVal = Number($n.val());
+		if(QtyVal > 0) {
+			$n.val(QtyVal - 1);
+		}
+		update_amounts();
+	});
+
+	function LengthConverter(valNum, ) {
+		document.getElementById("outputMeters").innerHTML = valNum + 10;
+	}
+	</script>
+	<script>
+	const nameChecked = document.querySelectorAll('.name')
+	const ProductCode = document.querySelectorAll('.ProductCode')
+	const ProductSize = document.querySelectorAll('.ProductSize')
+	const CompaniName = document.querySelectorAll('.CompaniName')
+	const QtyNbr = document.querySelectorAll('.QtyNbr')
+	const QuantityA = document.querySelectorAll('.QuantityA')
+	const ProductPrice = document.querySelectorAll('.ProductPrice')
+	let nameStore = []
+	nameChecked.forEach((item, index) => {
+		item.addEventListener('change', (e) => {
+			if(item.checked) {
+				nameStore[index] = {
+					name: e.target.value,
+					ProductCode: '',
+					ProductSize: '',
+					CompaniName: '',
+					QtyNbr: '',
+					QuantityA: '',
+					ProductPrice: null
+				}
+			}
+			if(!item.checked) {
+				let exists = nameStore.filter((info) => info.name !== e.target.value)
+				nameStore = exists
+			}
+		})
+	})
+	ProductCode.forEach((item, index) => {
+		item.addEventListener('change', (e) => {
+			nameStore[index].ProductCode = e.target.value
+		})
+	})
+	ProductSize.forEach((item, index) => {
+		item.addEventListener('change', (e) => {
+			nameStore[index].ProductSize = e.target.value
+		})
+	})
+	CompaniName.forEach((item, index) => {
+		item.addEventListener('change', (e) => {
+			nameStore[index].CompaniName = e.target.value
+		})
+	})
+	QtyNbr.forEach((item, index) => {
+		item.addEventListener('change', (e) => {
+			nameStore[index].QtyNbr = e.target.value
+			console.log(nameStore)
+		})
+	})
+	QuantityA.forEach((item, index) => {
+			item.addEventListener('change', (e) => {
+				nameStore[index].QuantityA = e.target.value
+			})
+		})
+		//ProductPrice.forEach((item,index)=>{
+		// item.addEventListener('change',(e)=>{
+		//   nameStore[index].ProductPrice=e.target.value
+		//   console.log(nameStore)
+		// })
+		//})
+		// const submit=document.getElementById('submit')
+		// submit.addEventListener('click',(e)=>{
+		//     localStorage.setItem('userName',JSON.stringify(nameStore))
+		//     window.location='show.html'
+		// })
+	document.getElementById('save').addEventListener('click', async(e) => {
+		e.preventDefault()
+		document.querySelector('#selected-data').innerHTML = ''
+		let data = nameStore.filter((item) => item !== null)
+		data.forEach((item, index) => {
+			document.querySelector('#selected-data').innerHTML += `<tr>
+       <!--td class="td7"><input class="name" type="checkbox" value="${item.name}"></td-->
+        <td class="td4">
+          <input class="inputD" style="width: 50px;
+          text-align: center;
+          font-size: 13px;" type="text" value="${index+1}" class="">
+        </td>
+		
+        <td class="td4">
+           <p>${item.name}</p>
+        </td>
+		
+        <td class="td4">
+        <select class="inputD">
+           <option value="${item.ProductCode}">${item.ProductCode}</option>
+           
+        </select>
+        </td>
+        
+		<td class="td4">
+        <select class="inputD">
+           <option value="${item.ProductSize}">${item.ProductSize}</option>
+           
+        </select>
+        </td>
+		
+		
+		<td class="td4">
+        <select class="inputD">
+           <option value="${item.CompaniName}">${item.CompaniName}</option>
+           
+        </select>
+        </td>
+		
+	
+        <td class="td4 ">
+           <div class="button-container">
+      
+              <input style="width: 50px; text-align: center; font-size: 13px;" type="text" name="qty" class="qty inputD" value="${item.QtyNbr}"/>
+			  <select class="inputD QuantityS">
+				<option value="${item.QuantityA}">${item.QuantityA}</option>
+			  </select>
+           </div>
+        </td>
+		
+		
+		
+				    <!--td>
+                     <input type="text" value="${item.ProductPrice}" class="price form-control inputD" disabled><span>৳</span>
+                     </td>
+                     <td align="right"> 
+					 <span id="amount" class="amount">0</span> <span>৳</span>
+                     </td>
+					 
+					 
+					 
+					               <tfoot>
+                  <tr>
+                     <td colspan="8"></td>
+                     <td align="right">
+                        <strong>
+						TOTAL = <span id="total" class="total">0</span> <span>৳</span>
+                        </strong>
+                     </td>
+                  </tr>
+				  
+				  
+				  <tr>
+                     <td colspan="8"></td>
+                     <td align="right" class="">
+                        <strong>
+						DISCOUNT = <input class="form-control" oninput="LengthConverter(this.value)" /><span> %</span>
+                        </strong>
+                     </td>
+                  </tr>
+				  <tr>
+                     <td colspan="8"></td>
+                     <td align="right">
+                        <strong>
+						TOTAL = <span id="outputMeters" >0</span> <span>৳</span>
+                        </strong>
+                     </td>
+                  </tr>
+				  
+				  
+               </tfoot-->
+					 
+
+
+     </tr>`
+		})
+		let element = document.getElementById('document')
+		document.getElementById('main').style.display = 'none'
+		element.style.display = 'block'
+		var opt = {
+			margin: 0,
+			filename: 'AMBD TGSLC.pdf',
+			image: {
+				type: 'jpeg',
+				quality: 100
+			},
+			html2canvas: {
+				scale: 2
+			},
+			jsPDF: {
+				unit: 'in',
+				format: 'letter',
+				orientation: 'portrait'
+			}
+		};
+		html2pdf().set(opt).from(element).save();
+		setTimeout(() => {
+			document.getElementById('main').style.display = 'block'
+			element.style.display = 'none'
+		}, 100);
+	})
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>
