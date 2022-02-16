@@ -1,0 +1,109 @@
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+i {
+    margin-right: 10px;
+}
+
+
+input:focus,
+button:focus,
+
+p {
+    margin-bottom: 0;
+}
+
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+.form-control:disabled, .form-control[readonly]{
+    background-color: #fff;
+}
+.table tr,
+.table tr td{
+    padding: 2px 5px 2px 5px;
+    vertical-align: 0;
+}
+
+.input1{
+	    width: 47px !important;
+}
+.table1{
+	    font-size: 12px;
+	
+	
+}
+.th0{
+	padding:0;
+	
+}
+
+
+.div0{
+    width: 134px;
+    padding: 0px 10px 0px 10px;
+}
+.td4{
+    width: 0 !important;
+}
+
+.td7{
+    width: 0 !important;
+	text-align: center;
+}
+
+
+
+}
+.button-container{
+    display: flex;
+    align-items: center;
+}
+.button-container .form-control{
+    max-width: 80px;
+    text-align: center;
+    display: inline-block;
+    margin: 0px 5px;
+}
+#myTable .form-control{
+    width: auto;
+    display: inline-block;
+    width: 70px;
+    height: 18px;
+    font-size: 12px;
+}
+.cart-qty-plus,
+.cart-qty-minus{
+    width: 38px;
+    height: 38px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.cart-qty-plus:hover,
+.cart-qty-minus:hover{
+    background-color: #5161ce;
+    color: #fff;
+}
+
+.cart-qty-plus{
+    background-color: #28a745;
+    color:white;
+    font-weight: 600;
+    width: 14px;
+    height: 19px;
+}
+.cart-qty-minus{
+    background-color: #28a745;
+    color:white;
+    font-weight: 600;
+    width: 14px;
+    height: 19px;
+}
